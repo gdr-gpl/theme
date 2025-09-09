@@ -4,14 +4,19 @@
   {{ partial "head.html" . }}
 </head>
 <body>
-  <header>
-    {{ partial "header.html" . }}
-  </header>
-  <main>
-    {{ block "main" . }}{{ end }}
-  </main>
-  <footer>
-    {{ partial "footer.html" . }}
-  </footer>
+  <div class="site-bg">
+    <div class="site-container">
+      <header>
+        {{ partial "header.html" . }}
+      </header>
+      <!-- {{ partial "hero.html" . }} -->
+      <main>
+        {{ block "main" . }}{{ end }}
+      </main>
+      <footer>
+        {{ partial "footer.html" . }}
+      </footer>
+    </div>
+  </div>
 </body>
 </html>
