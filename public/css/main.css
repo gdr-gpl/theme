@@ -22,3 +22,38 @@ body {
   padding: 2rem;
 }
 
+.title-site a {
+  text-decoration: none;
+  color: black;
+}
+
+
+.body-header{
+  display: flex;
+  flex-direction: row;
+}
+
+.container-titreDescription{
+  display: flex;
+  flex-direction: column;
+  padding-top: 5px;
+}
+
+.description-titre {
+  color: grey;
+  font-style: italic;
+  font-size: 16px;
+  padding-top: 5px;
+}
+
+.form {
+  width: 80%;
+  justify-content: flex-end; 
+  align-content: center;
+  margin-left: 100px;
+}
+
+.field {
+  width: 90%;      
+  padding: 8px;
+}

@@ -1,2 +1,21 @@
-<h1>{{ site.Title }}</h1>
+<div class="body-header">
+<div class="container-titreDescription">
+<h1 class="title-site">
+  <a href="https://gdr-gpl.cnrs.fr/">{{ site.Title }}</a>
+</h1>
+<h3 class="description-titre">
+  GdR Génie de la Programmation et du Logiciel
+</h3>
+</div>
+
+<div class="form">
+  <form method="get" id="searchform" action="https://gdr-gpl.cnrs.fr/">
+    <label for="s" class="label"></label>
+    <input type="text" class="field" name="s" id="s" placeholder="Search">
+    <!-- <input type="submit" value="Search"> -->
+  </form>
+</div>
+
+</div>
+
 {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
