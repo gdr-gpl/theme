@@ -73,6 +73,7 @@ main {
 .body-header{
   display: flex;
   flex-direction: row;
+  margin-left: 20px;
 }
 
 .container-titreDescription{
@@ -98,4 +99,17 @@ main {
 .field {
   width: 90%;      
   padding: 8px;
+}
+
+.liens-colonnes h3 {
+  color: #0f0f0f;              
+  font-size: 15px;  
+  margin-left: 30px;
+}
+
+.liens-colonnes a {
+  color: #0f545e;          
+  font-weight: bold;       
+  text-decoration: none; 
+  font-size: 12px;  
 }
