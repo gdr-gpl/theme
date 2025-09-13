@@ -1,0 +1,13 @@
+{{ $news := where .Site.RegularPages "Params.type" "news" }}
+{{ if gt (len $news) 0 }}
+  <ul>
+  {{ range $news.ByDate.Reverse }}
+    <li>
+      <a href="{{ .Permalink }}">{{ .Title }}</a><br>
+      {{ .Summary }}
+    </li>
+  {{ end }}
+  </ul>
+{{ else }}
+  <p>Aucune actualité récemment publiée.</p>
+{{ end }}
