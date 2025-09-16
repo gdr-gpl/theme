@@ -1,10 +1,74 @@
 <div class="hero-banner">
+  <!-- Image du banner -->
   <img src="/banner.png" alt="Banner" class="hero-image" />
+  
+  <!-- Navigation -->
   <nav class="hero-nav">
     <ul>
+      <!-- On récupère le menu hero -->
       {{ $menu := site.Menus.hero }}
+      
+      <!-- On fait une boucle pour chaque élément du menu -->
       {{ range $menu }}
-        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+      
+      <!-- Pour chaque item du menu, on récupère la page correspondante -->
+      {{ $section := site.GetPage .URL }}
+
+      <!-- On collecte tous les enfants pour chaque page -->
+      {{ $children := slice }}
+      
+      <!-- Si la section n'est pas null -->
+      {{ with $section }}
+        {{ if not .IsHome }}
+          
+          <!-- Pour chaque fichiers dans le directory -->
+          {{ range .Resources }}
+            <!-- si ressource est de type page -->
+            {{ if eq .ResourceType "page" }}
+              {{- if or (eq .Type "page") (eq (.Params.type) "page") }}
+                <!-- Alors on l'ajoute à notre liste d'enfants -->
+                {{ $children = $children | append . }}
+              {{- end }}
+            {{ end }}
+          {{ end }}
+
+          <!-- On regarde aussi toutes les pages normales -->
+          {{ range .Pages }}
+            {{ if ne .File.BaseFileName "_index" }}
+              {{- if or (eq .Type "page") (eq (.Params.type) "page") }}
+                {{ $children = $children | append . }}
+              {{- end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
+      <!-- On trie tous ces enfants par leur chemin de fichier -->
+      {{ $children = sort $children "File.Path" }}
+
+        <!-- Si on a des enfants alors on fait un dropdown menu -->
+        {{ if gt (len $children) 0 }}
+          <li class="dropdown">
+            <!-- Le lien principal avec une petite flèche pour indiquer l'existence d'un dropdown -->
+            <a href="{{ .Page.Permalink }}" class="dropdown-toggle">{{ .Name }} (emoji de fleche vers le bas)</a>
+            
+            <!-- Menu déroulant avec tous les enfants -->
+            <ul class="dropdown-menu">
+              {{ range $children }}
+                <li>
+                  <!-- Pour chaque enfant, on fait un href -->
+                  <a href="{{ .Page.Permalink }}">
+                    <!-- On affiche comme nom d'élément de dropdown le title et si null alors le nom du fichier -->
+                    {{ if .Title }}{{ .Title }}{{ else }}{{ .File.BaseFileName }}{{ end }}
+                  </a>
+                </li>
+              {{ end }}
+            </ul>
+          </li>
+        {{ else }}
+          <!-- Si pas d'enfants alors un href sans dropdown -->
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
       {{ end }}
     </ul>
   </nav>
