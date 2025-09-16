@@ -1,13 +1,20 @@
-{{ $news := where .Site.RegularPages "Params.type" "news" }}
-{{ if gt (len $news) 0 }}
-  <ul>
-  {{ range $news.ByDate.Reverse }}
-    <li>
-      <a href="{{ .Permalink }}">{{ .Title }}</a><br>
-      {{ .Summary }}
-    </li>
+
+<p style="margin-bottom: 1rem;">
+  <a href="">Dernières actualités</a>
+</p>
+ <div class="news-list" style="margin-left: 2rem;padding-left: 1rem; "> 
+  {{ range where site.RegularPages "Type" "news"}}
+
+  {{ $summary := .Summary | plainify }}
+  {{ $content := .Content | plainify }}
+
+     <div class="news-item" style="margin-bottom: 1.5rem;">
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        <p>{{ .Summary }}</p>
+        
+        {{ if lt (len $summary) (len $content) }}
+        <a href="{{ .RelPermalink }}">Continue reading →</a>
+        {{ end }}
+      </div>
   {{ end }}
-  </ul>
-{{ else }}
-  <p>Aucune actualité récemment publiée.</p>
-{{ end }}
+  </div>
