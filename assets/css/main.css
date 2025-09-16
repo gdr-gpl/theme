@@ -6,6 +6,11 @@ body {
   font-family: sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+
 .site-bg {
   min-height: 100vh;
   background: #f3f3f3;
