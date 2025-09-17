@@ -11,8 +11,13 @@
       </header>
       {{ partial "hero.html" . }}
       <main>
-        {{ block "main" . }}{{ end }}
-      </main>
+         <div class="main-test">
+            {{ partial "archive.html" . }}
+         <div class="content">
+            {{ block "main" . }}{{ end }}
+         </div>
+      </div>
+</main>
       <footer>
         {{ partial "footer.html" . }}
       </footer>
