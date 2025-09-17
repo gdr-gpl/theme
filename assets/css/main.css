@@ -152,3 +152,43 @@ footer {
   font-size: 12px;  
 }
 
+
+.archive h3 {
+  color: #0f0f0f;              
+  font-size: 20px;  
+  margin-left: 20px;
+}
+
+.archive a {
+  color: #0f545e;          
+  font-weight: bold;       
+  text-decoration: none; 
+  font-size: 15px;  
+   white-space: nowrap;
+}
+
+.archives {
+  min-width: 200px;  
+}
+
+
+.main-test {
+  display: flex;
+  gap: 12rem; 
+  align-items: flex-start; 
+}
+
+.content {
+    margin-top: 10px;
+}
+
+a {
+    color: #036085;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
