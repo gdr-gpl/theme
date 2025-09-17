@@ -1,0 +1,17 @@
+<div class="archives">
+  <h2>Archives</h2>
+  {{ $archives := where .Site.RegularPages "Type" "archive" }}
+  {{ if $archives }}
+    <ul>
+      {{ range sort $archives ".Date" "desc" }}
+        <li>
+          <a href="{{ .RelPermalink }}">
+            {{ .Date.Format "January 2006" }}
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ else }}
+    <p>Aucune archive trouvée.</p>
+  {{ end }}
+</div>
