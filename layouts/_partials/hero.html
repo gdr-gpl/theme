@@ -1,7 +1,14 @@
-<div class="hero-banner">
+<div class="hero-banner" id="hero-slideshow">
+
   <!-- Image du banner -->
-  <img src="/banner.png" alt="Banner" class="hero-image" />
-  
+  <div class="slides-wrapper">
+
+    <!-- Récupére les 10 images de banner -->
+    {{ range seq 1 10 }}
+      <img class="slide{{ if eq . 1 }} active{{ end }}" src="/banner_{{ . }}.jpg" alt="Banner {{ . }}" />
+    {{ end }}
+  </div>
+    
   <!-- Navigation -->
   <nav class="hero-nav">
     <ul>
