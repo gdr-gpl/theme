@@ -216,3 +216,194 @@ a:hover {
 .site-bg .site-container .main-test .content {
   margin-top: 10px;
 }
+
+/* # ======================================== # */
+/* # ==== Responsive CSS Media Selectors ==== # */
+/* # ======================================== # */
+
+/* #### width < 768px #### */
+/* Plus adaptés aux écrans de téléphones */
+@media (max-width: 768px) {
+
+  .site-bg .site-container {
+    margin: 1rem;
+    border-radius: 4px;
+  }
+
+  .site-bg .site-container main {
+    padding: 1rem;
+  }
+
+  /* No banner image for phones? */
+  .site-bg .site-container .hero-banner .hero-image {
+    display: none !important;
+  }
+
+  .site-bg .site-container .hero-banner .hero-nav {
+    padding: 0.5rem 1rem;
+  }
+
+  .site-bg .site-container .hero-banner .hero-nav ul {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .site-bg .site-container .hero-banner .hero-nav a {
+    font-size: 1rem;
+  }
+
+  .site-bg .site-container .hero-banner {
+    position: static;
+    padding-bottom: 0;
+  }
+
+  .site-bg .site-container .hero-banner .hero-nav {
+    position: relative;
+    margin-top: 0.6rem;
+    background: rgba(0,0,0,0.92);
+    border-bottom-left-radius: 0.4rem; 
+    border-bottom-right-radius: 0.4rem;
+  }
+
+  /* à revenir dessus dans V2 : z index to fix, stackking issues with nav */
+  .site-bg .site-container .body-header {
+    position: relative;
+    z-index: 2;
+  }
+
+  .site-bg .site-container .body-header {
+    flex-direction: column;
+    /* à revenir dessus dans V2 : Parent margin problem? */
+    margin-right: 1rem;
+    padding: 1rem;
+    gap: 0.6rem;
+  }
+
+  .site-bg .site-container .body-header .container-titreDescription {
+    order: 1;
+    width: 100%;
+  }
+
+  .site-bg .site-container .body-header .container-titreDescription .title-site a {
+    font-size: 1.4rem;
+  }
+
+  .site-bg .site-container .body-header .container-titreDescription .description-titre {
+    font-size: 0.9rem;
+    display: block;
+  }
+
+  .site-bg .site-container .body-header .form {
+    order: 2;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .site-bg .site-container .body-header .form .field {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
+
+  /* #### Archives en bas #### */
+  /* TODO pour V2 ? : J'aimerais bien faire un sidebar ou un under menu popup mais c'est ce qu'on aura pour la V1 */
+  .site-bg .site-container .main-test {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .site-bg .site-container .main-test .content {
+    order: 1;
+    margin-top: 0;
+  }
+
+  .site-bg .site-container .main-test .archives {
+    order: 2;
+    min-width: auto;
+    border-top: 1px solid #eee;
+    padding-top: 2rem;
+    margin-top: 1rem;
+  }
+
+  /* #### Archives mobile #### */
+  .site-bg .site-container .main-test .archives .liens-colonnes h3 {
+    margin-left: 0;
+    font-size: 0.9rem;
+  }
+
+  .site-bg .site-container .main-test .archives .liens-colonnes a {
+    font-size: 0.8rem;
+  }
+
+  .site-bg .site-container .main-test .archives .archive h3 {
+    margin-left: 0;
+    font-size: 1.125rem;
+  }
+
+  .site-bg .site-container .main-test .archives .archive a {
+    font-size: 0.875rem;
+    white-space: normal;
+  }
+}
+
+/* #### 770px < width < 1200px #### */
+@media (min-width: 770px) and (max-width: 1200px) {
+
+  .site-bg .site-container {
+    margin: 1.5rem;
+    max-width: 95%;
+  }
+
+  .site-bg .site-container main {
+    padding: 1.5rem;
+  }
+
+  /* #### Hero section tablette/big phone #### */
+  .site-bg .site-container .hero-banner .hero-image {
+    height: 220px;
+  }
+
+  .site-bg .site-container .hero-banner .hero-nav {
+    padding: 0.5rem 1.5rem;
+  }
+
+  .site-bg .site-container .hero-banner .hero-nav ul {
+    gap: 1.5rem;
+  }
+
+  .site-bg .site-container .body-header {
+    margin-left: 0.9rem;
+  }
+
+  .site-bg .site-container .body-header .form {
+    margin-left: 3.1rem;
+  }
+
+  .site-bg .site-container .body-header .form .field {
+    padding: 0.7rem;
+  }
+
+  .site-bg .site-container .main-test {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .site-bg .site-container .main-test .content {
+    order: 1;
+  }
+
+  .site-bg .site-container .main-test .archives {
+    order: 2;
+    min-width: auto;
+    border-top: 1px solid #eee;
+    padding-top: 2rem;
+  }
+
+  .site-bg .site-container .main-test .archives .liens-colonnes h3 {
+    margin-left: 0.6rem;
+  }
+
+  .site-bg .site-container .main-test .archives .archive h3 {
+    margin-left: 0.6rem;
+  }
+}
