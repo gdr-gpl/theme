@@ -1,3 +1,6 @@
+/* # ======================= # */
+/* # ==== GLOBAL STYLES ==== # */
+/* # ======================= # */
 
 body {
   background: #f3f3f3;
@@ -8,15 +11,24 @@ body {
 
 a {
   text-decoration: none;
+  color: #036085;
 }
 
+a:hover {
+  text-decoration: underline;
+}
 
+/* # ===================== # */
+/* # ==== baseof.html ==== # */
+/* # ===================== # */
+
+/* #### Partie background et containeur du site #### */
 .site-bg {
   min-height: 100vh;
   background: #f3f3f3;
 }
 
-.site-container {
+.site-bg .site-container {
   max-width: 1100px;
   margin: 2rem auto;
   margin: 32px auto;
@@ -27,72 +39,11 @@ a {
   padding-bottom: 2rem;
 }
 
-.hero-banner {
-  position: relative;
-  width: 100%;
-  margin-bottom: 2rem;
-}
-
-.hero-image {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  display: block;
-}
-
-.hero-nav {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0,0,0,0.92);
-  padding: 0.5rem 2rem;
-}
-
-.hero-nav ul {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.hero-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.hero-nav li.dropdown {
-  position: relative;
-}
-.hero-nav .dropdown-menu {
-  display: none;
-  position: absolute;
-  background: #222;
-  padding: 0.5rem 0;
-  margin: 0;
-  list-style: none;
-  min-width: 180px;
-  z-index: 100;
-}
-.hero-nav li.dropdown:hover .dropdown-menu {
-  display: block;
-}
-.hero-nav .dropdown-menu li a {
-  color: #fff;
-  padding: 0.5rem 1rem;
-  display: block;
-  white-space: nowrap;
-}
-
-main {
+.site-bg .site-container main {
   padding: 2rem;
 }
 
-footer {
+.site-bg .site-container footer {
   border-top: 1px solid #eee;
   margin-top: 2rem;
   padding: 1rem 2rem 0.5rem 2rem;
@@ -102,93 +53,166 @@ footer {
   font-size: 0.95rem;
 }
 
-.title-site a {
-  text-decoration: none;
-  color: black;
+/* # =================== # */
+/* # ==== hero.html ==== # */
+/* # =================== # */
+
+/* #### Partie banner du hero #### */
+.site-bg .site-container .hero-banner {
+  position: relative;
+  width: 100%;
+  margin-bottom: 2rem;
 }
 
+.site-bg .site-container .hero-banner .hero-image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
 
-.body-header{
+/* #### Partie navigation du hero #### */
+.site-bg .site-container .hero-banner .hero-nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.92);
+  padding: 0.5rem 2rem;
+}
+
+.site-bg .site-container .hero-banner .hero-nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-bg .site-container .hero-banner .hero-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.site-bg .site-container .hero-banner .hero-nav li.dropdown {
+  position: relative;
+}
+
+.site-bg .site-container .hero-banner .hero-nav .dropdown-menu {
+  display: none;
+  position: absolute;
+  background: #222;
+  padding: 0.5rem 0;
+  margin: 0;
+  list-style: none;
+  min-width: 180px;
+  z-index: 100;
+}
+
+.site-bg .site-container .hero-banner .hero-nav li.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.site-bg .site-container .hero-banner .hero-nav .dropdown-menu li a {
+  color: #fff;
+  padding: 0.5rem 1rem;
+  display: block;
+  white-space: nowrap;
+}
+
+/* # ===================== # */
+/* # ==== header.html ==== # */
+/* # ===================== # */
+
+/* #### Partie titre et description #### */
+.site-bg .site-container .body-header {
   display: flex;
   flex-direction: row;
   margin-left: 20px;
 }
 
-.container-titreDescription{
+.site-bg .site-container .body-header .container-titreDescription {
   display: flex;
   flex-direction: column;
   padding-top: 5px;
 }
 
-.description-titre {
+.site-bg .site-container .body-header .container-titreDescription .title-site a {
+  text-decoration: none;
+  color: black;
+}
+
+.site-bg .site-container .body-header .container-titreDescription .description-titre {
   color: grey;
   font-style: italic;
   font-size: 16px;
   padding-top: 5px;
 }
 
-.form {
+/* #### Partie formulaire de recherche #### */
+.site-bg .site-container .body-header .form {
   width: 80%;
-  justify-content: flex-end; 
+  justify-content: flex-end;
   align-content: center;
   margin-left: 100px;
 }
 
-.field {
-  width: 90%;      
+.site-bg .site-container .body-header .form .field {
+  width: 90%;
   padding: 8px;
 }
 
-.liens-colonnes h3 {
-  color: #0f0f0f;              
-  font-size: 15px;  
+/* # ====================== # */
+/* # ==== archive.html ==== # */
+/* # ====================== # */
+
+/* #### Partie liens-colonnes #### */
+.site-bg .site-container .main-test .archives .liens-colonnes h3 {
+  color: #0f0f0f;
+  font-size: 15px;
   margin-left: 30px;
 }
 
-.liens-colonnes a {
-  color: #0f545e;          
-  font-weight: bold;       
-  text-decoration: none; 
-  font-size: 12px;  
+.site-bg .site-container .main-test .archives .liens-colonnes a {
+  color: #0f545e;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 12px;
 }
 
-
-.archive h3 {
-  color: #0f0f0f;              
-  font-size: 20px;  
+/* #### Partie archive #### */
+.site-bg .site-container .main-test .archives .archive h3 {
+  color: #0f0f0f;
+  font-size: 20px;
   margin-left: 20px;
 }
 
-.archive a {
-  color: #0f545e;          
-  font-weight: bold;       
-  text-decoration: none; 
-  font-size: 15px;  
-   white-space: nowrap;
+.site-bg .site-container .main-test .archives .archive a {
+  color: #0f545e;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 15px;
+  white-space: nowrap;
 }
 
-.archives {
-  min-width: 200px;  
+.site-bg .site-container .main-test .archives {
+  min-width: 200px;
 }
 
+/* # ===================== # */
+/* # ==== main layout ==== # */
+/* # ===================== # */
 
-.main-test {
+/* #### Partie main-test et content #### */
+.site-bg .site-container .main-test {
   display: flex;
-  gap: 12rem; 
-  align-items: flex-start; 
+  gap: 12rem;
+  align-items: flex-start;
 }
 
-.content {
-    margin-top: 10px;
+.site-bg .site-container .main-test .content {
+  margin-top: 10px;
 }
-
-a {
-    color: #036085;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-
