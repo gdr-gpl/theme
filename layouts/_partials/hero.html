@@ -1,14 +1,7 @@
-<div class="hero-banner" id="hero-slideshow">
-
+<div class="hero-banner">
   <!-- Image du banner -->
-  <div class="slides-wrapper">
-
-    <!-- Récupére les 10 images de banner -->
-    {{ range seq 1 10 }}
-      <img class="slide{{ if eq . 1 }} active{{ end }}" src="/banner_{{ . }}.jpg" alt="Banner {{ . }}" />
-    {{ end }}
-  </div>
-    
+  <img src="/banner.png" alt="Banner" class="hero-image" />
+  
   <!-- Navigation -->
   <nav class="hero-nav">
     <ul>
@@ -28,7 +21,7 @@
       {{ with $section }}
         {{ if not .IsHome }}
           
-          <!-- Pour chaque fichiers dans le directory -->
+          <!-- Pour chaque fichiers dans le directory (page bundles comme afsec/index.md) -->
           {{ range .Resources }}
             <!-- si ressource est de type page -->
             {{ if eq .ResourceType "page" }}
@@ -41,10 +34,8 @@
 
           <!-- On regarde aussi toutes les pages normales -->
           {{ range .Pages }}
-            {{ if ne .File.BaseFileName "_index" }}
               {{- if or (eq .Type "page") (eq (.Params.type) "page") }}
                 {{ $children = $children | append . }}
-              {{- end }}
             {{ end }}
           {{ end }}
         {{ end }}
@@ -57,14 +48,14 @@
         {{ if gt (len $children) 0 }}
           <li class="dropdown">
             <!-- Le lien principal avec une petite flèche pour indiquer l'existence d'un dropdown -->
-            <a href="{{ .Page.Permalink }}" class="dropdown-toggle">{{ .Name }} ↓</a>
+            <a href="{{ .URL }}" class="dropdown-toggle">{{ .Name }} ↓</a>
             
             <!-- Menu déroulant avec tous les enfants -->
             <ul class="dropdown-menu">
               {{ range $children }}
                 <li>
                   <!-- Pour chaque enfant, on fait un href -->
-                  <a href="{{ .Page.Permalink }}">
+                  <a href="{{ if .RelPermalink }}{{ .RelPermalink }}{{ else }}{{ $.RelPermalink }}{{ .File.BaseFileName }}/{{ end }}">
                     <!-- On affiche comme nom d'élément de dropdown le title et si null alors le nom du fichier -->
                     {{ if .Title }}{{ .Title }}{{ else }}{{ .File.BaseFileName }}{{ end }}
                   </a>
