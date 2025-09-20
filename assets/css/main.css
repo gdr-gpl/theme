@@ -447,16 +447,3 @@ a:hover {
 }
 
 
-.month-link {
-  cursor: pointer;
-  color: rgb(13, 185, 228);
-  text-decoration: none;
-  display: flex;
-     margin-bottom: 10px;
-
-}
-
-
-.month-link:hover {
-  text-decoration: underline;
-}
