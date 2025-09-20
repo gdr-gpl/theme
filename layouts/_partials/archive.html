@@ -1,16 +1,22 @@
-<div class="archives">
-  <h2>Archives</h2>
-  {{ $archives := where .Site.RegularPages "Type" "archive" }}
-  {{ if $archives }}
-    <ul>
-      {{ range sort $archives ".Date" "desc" }}
-        <li>
-          <a href="{{ .RelPermalink }}">
-            {{ .Date.Format "January 2006" }}
-          </a>
-        </li>
-      {{ end }}
-    </ul>
-  {{ end }}
-</div>
+<div class="sidebar">
+  <h3>Archives</h3>
+  <ul>
+    {{ range ($.Site.RegularPages.GroupByDate "2006-01") }}
+      <li>
+        
+        <a href="#month-{{ .Key | urlize }}" class="month-link">
+          {{ $date := printf "%s-01" .Key | time.AsTime }}
+          {{ $date.Format "January 2006" }}
+        </a>
 
+        <ul class="month-articles" id="month-{{ .Key | urlize }}">
+          {{ range .Pages }}
+            <li>
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </li>
+          {{ end }}
+        </ul>
+      </li>
+    {{ end }}
+  </ul>
+</div>
