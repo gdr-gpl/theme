@@ -64,6 +64,14 @@ a:hover {
   margin-bottom: 2rem;
 }
 
+.hero-banner .hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+
 /* Slideshow des banners */
 .hero-banner .slides-wrapper {
   position: relative;
