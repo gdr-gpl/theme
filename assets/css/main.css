@@ -61,7 +61,6 @@ a:hover {
 .site-bg .site-container .hero-banner {
   position: relative;
   width: 100%;
-  margin-bottom: 2rem;
 }
 
 .hero-banner .hero-image {
@@ -103,9 +102,11 @@ a:hover {
   right: 0;
   bottom: 0;
   background: rgba(0,0,0,0.92);
-  padding: 0.5rem 2rem;
   z-index: 2;
+  display: flex;
+  justify-content: center;
 }
+
 
 .site-bg .site-container .hero-banner .hero-nav ul {
   display: flex;
@@ -115,31 +116,63 @@ a:hover {
   padding: 0;
 }
 
+.site-bg .site-container .hero-banner .hero-nav li {
+  position: relative; 
+}
+
 .site-bg .site-container .hero-banner .hero-nav a {
   color: #fff;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 500;
   transition: color 0.2s;
 }
 
+.site-bg .site-container .hero-banner .hero-nav li a {
+  display: block;
+  padding: 1rem 0.5rem;
+}
+
+  .hero-nav li.dropdown {
+    flex-wrap: wrap;
+  }
+
+  .hero-nav li.dropdown .dropdown-menu {
+    width: 100%;
+    order: 2;
+    margin-top: 0.5em;
+  }
+  
+/* Hover et dropdown actif */
+.site-bg .site-container .hero-banner .hero-nav li a:hover,
+.site-bg .site-container .hero-banner .hero-nav li.dropdown:hover > a {
+  background: #222;  
+  border-radius: 2px;
+  transition: background 0.3s ease;
+}
+
+/* Dropdown */
 .site-bg .site-container .hero-banner .hero-nav li.dropdown {
   position: relative;
+  
 }
 
 .site-bg .site-container .hero-banner .hero-nav .dropdown-menu {
-  display: none;
   position: absolute;
   background: #222;
-  padding: 0.5rem 0;
   margin: 0;
   list-style: none;
   min-width: 180px;
   z-index: 100;
+  display:block;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
 }
 
 .site-bg .site-container .hero-banner .hero-nav li.dropdown:hover .dropdown-menu {
-  display: block;
+  opacity: 1;
+  visibility: visible;
 }
 
 .site-bg .site-container .hero-banner .hero-nav .dropdown-menu li a {
@@ -149,6 +182,15 @@ a:hover {
   white-space: nowrap;
 }
 
+.site-bg .site-container .hero-banner .hero-nav .dropdown-menu li a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff; 
+  border-radius: 4px;
+}
+
+.hero-nav .dropdown-toggle-arrow {
+  display: none;
+}
 /* # ===================== # */
 /* # ==== header.html ==== # */
 /* # ===================== # */
@@ -239,9 +281,6 @@ a:hover {
   align-items: flex-start;
 }
 
-.site-bg .site-container .main-test .content {
-  margin-top: 10px;
-}
 
 /* # ======================================== # */
 /* # ==== Responsive CSS Media Selectors ==== # */
@@ -265,28 +304,85 @@ a:hover {
     display: none !important;
   }
 
-
-  .site-bg .site-container .hero-banner .hero-nav ul {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  .site-bg .site-container .hero-banner .hero-nav a {
-    font-size: 1rem;
-  }
-
   .site-bg .site-container .hero-banner {
     position: static;
     padding-bottom: 0;
   }
 
+  /* Navbar mobile */
+  .site-bg .site-container .hero-banner .hero-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
   .site-bg .site-container .hero-banner .hero-nav {
     position: relative;
-    margin-top: 0.6rem;
-    background: rgba(0,0,0,0.92);
     border-bottom-left-radius: 0.4rem; 
     border-bottom-right-radius: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; 
   }
+
+  .hero-nav li.dropdown { 
+    display: flex;
+    align-items: center;
+    color: #fff;
+    flex-direction: row;
+  }
+
+  .hero-nav li.dropdown > a {
+      flex: 1;            
+      font-size: 1rem;
+      padding: 0.8rem 1rem;
+  }
+.site-bg .site-container .hero-banner .hero-nav li a:hover,
+.site-bg .site-container .hero-banner .hero-nav li.dropdown:hover > a {
+  background: none;  
+}
+
+  .hero-nav li.dropdown > .dropdown-toggle-arrow {
+    cursor:pointer;
+    padding: 0 1rem;
+    flex: none; 
+    display: inline-block;
+  }
+
+  .site-bg .site-container .hero-banner .hero-nav li.dropdown {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .site-bg .site-container .hero-banner .hero-nav li.dropdown .dropdown-menu {
+    display: block !important;
+    position: static !important;
+    background: #222;
+    width: 100%;
+    max-height: 0 !important;
+    opacity: 0 !important;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    box-sizing: border-box;
+    margin: 0;
+    clear: both;
+  }
+
+  .site-bg .site-container .hero-banner .hero-nav li.dropdown.open .dropdown-menu {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    overflow: visible !important;
+    background: #222;
+    border: none;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    max-height: 1000px !important;
+    position: static !important;
+    width: 100% !important;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+
 
   /* à revenir dessus dans V2 : z index to fix, stackking issues with nav */
   .site-bg .site-container .body-header {
@@ -340,7 +436,7 @@ a:hover {
     margin-top: 0;
   }
 
-  .site-bg .site-container .main-test .archives {
+  .site-bg .site-container .main-test .sidebar {
     order: 2;
     min-width: auto;
     border-top: 1px solid #eee;
@@ -386,13 +482,7 @@ a:hover {
     height: 220px;
   }
 
-  .site-bg .site-container .hero-banner .hero-nav {
-    padding: 0.5rem 1.5rem;
-  }
 
-  .site-bg .site-container .hero-banner .hero-nav ul {
-    gap: 1.5rem;
-  }
 
   .site-bg .site-container .body-header {
     margin-left: 0.9rem;
@@ -415,7 +505,7 @@ a:hover {
     order: 1;
   }
 
-  .site-bg .site-container .main-test .archives {
+  .site-bg .site-container .main-test .sidebar {
     order: 2;
     min-width: auto;
     border-top: 1px solid #eee;
