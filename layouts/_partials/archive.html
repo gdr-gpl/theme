@@ -1,22 +1,31 @@
-<div class="sidebar">
-  <h3>Archives</h3>
-  <ul>
-    {{ range ($.Site.RegularPages.GroupByDate "2006-01") }}
-      <li>
-        
-        <a href="#month-{{ .Key | urlize }}" class="month-link">
-          {{ $date := printf "%s-01" .Key | time.AsTime }}
-          {{ $date.Format "January 2006" }}
-        </a>
+<ul>
+  {{/* Récupérer les archives dans un tableau triable */}}
+  {{ $archives := slice }}
+  {{ range $k, $v := .Site.Taxonomies.archives }}
+    {{ $archives = $archives | append (dict "key" $k "val" $v) }}
+  {{ end }}
+  {{/* Trier par clé décroissante */}}
+  {{ $archives = sort $archives "key" "desc" }}
 
-        <ul class="month-articles" id="month-{{ .Key | urlize }}">
-          {{ range .Pages }}
-            <li>
-              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            </li>
-          {{ end }}
-        </ul>
-      </li>
-    {{ end }}
-  </ul>
-</div>
+  {{ range $archives }}
+    <li>
+      <a href="{{ "_/archives/" | relURL }}{{ .key | urlize }}/">
+        {{ $date := printf "%s-01" .key | time }}
+        {{ $date.Format "January 2006"
+          | replaceRE "January" "Janvier"
+          | replaceRE "February" "Février"
+          | replaceRE "March" "Mars"
+          | replaceRE "April" "Avril"
+          | replaceRE "May" "Mai"
+          | replaceRE "June" "Juin"
+          | replaceRE "July" "Juillet"
+          | replaceRE "August" "Août"
+          | replaceRE "September" "Septembre"
+          | replaceRE "October" "Octobre"
+          | replaceRE "November" "Novembre"
+          | replaceRE "December" "Décembre"
+        }}
+      </a>
+    </li>
+  {{ end }}
+</ul>
