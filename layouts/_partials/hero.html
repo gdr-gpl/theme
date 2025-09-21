@@ -48,7 +48,8 @@
         {{ if gt (len $children) 0 }}
           <li class="dropdown">
             <!-- Le lien principal avec une petite flèche pour indiquer l'existence d'un dropdown -->
-            <a href="{{ .URL }}" class="dropdown-toggle">{{ .Name }} ⌄</a>
+            <a href="{{ .URL }}" class="dropdown-toggle">{{ .Name }}</a> 
+            <span class="dropdown-toggle-arrow" tabindex="0">▼</span>
             
             <!-- Menu déroulant avec tous les enfants -->
             <ul class="dropdown-menu">

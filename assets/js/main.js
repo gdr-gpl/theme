@@ -41,3 +41,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // On lance un intervalle pour switcher de slide toutes les 10420 secondes
     setInterval(showNextSlide, slideDelayMs);
 });
+
+ // === Dropdown toggle mobile ===
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.hero-nav .dropdown-toggle-arrow').forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const parentLi = this.closest('li.dropdown');
+            parentLi.classList.toggle('open');
+        });
+    });
+});
