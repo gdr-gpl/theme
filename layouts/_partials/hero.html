@@ -6,7 +6,7 @@
   <nav class="hero-nav">
     <ul>
       <!-- On récupère le menu hero -->
-      {{ $menu := site.Menus.hero }}
+      {{ $menu := sort site.Menus.hero "Weight" }}
       
       <!-- On fait une boucle pour chaque élément du menu -->
       {{ range $menu }}
