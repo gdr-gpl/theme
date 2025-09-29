@@ -434,6 +434,7 @@ a:hover {
   .site-bg .site-container .main-test .content {
     order: 1;
     margin-top: 0;
+    width: 100% !important;
   }
 
   .site-bg .site-container .main-test .sidebar {
@@ -499,10 +500,11 @@ a:hover {
   .site-bg .site-container .main-test {
     flex-direction: column;
     gap: 3rem;
-  }
+      }
 
   .site-bg .site-container .main-test .content {
     order: 1;
+    width: 100% !important;
   }
 
   .site-bg .site-container .main-test .sidebar {
