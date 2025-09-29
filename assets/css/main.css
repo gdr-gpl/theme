@@ -153,8 +153,7 @@ a:hover {
 
 /* Dropdown */
 .site-bg .site-container .hero-banner .hero-nav li.dropdown {
-  position: relative;
-  
+  position: relative;  
 }
 
 .site-bg .site-container .hero-banner .hero-nav .dropdown-menu {
@@ -179,7 +178,7 @@ a:hover {
   color: #fff;
   padding: 0.5rem 1rem;
   display: block;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 
 .site-bg .site-container .hero-banner .hero-nav .dropdown-menu li a:hover {
@@ -279,6 +278,10 @@ a:hover {
   display: flex;
   gap: 12rem;
   align-items: flex-start;
+}
+
+.site-bg .site-container .main-test .content {
+  overflow-wrap: anywhere;
 }
 
 
@@ -434,7 +437,7 @@ a:hover {
   .site-bg .site-container .main-test .content {
     order: 1;
     margin-top: 0;
-    width: 100% !important;
+    width: 100%;
   }
 
   .site-bg .site-container .main-test .sidebar {
@@ -500,11 +503,11 @@ a:hover {
   .site-bg .site-container .main-test {
     flex-direction: column;
     gap: 3rem;
-      }
+  }
 
   .site-bg .site-container .main-test .content {
     order: 1;
-    width: 100% !important;
+    width: 100%;
   }
 
   .site-bg .site-container .main-test .sidebar {
