@@ -285,6 +285,19 @@ a:hover {
 }
 
 
+/* #### Partie news item #### */
+.news-item {
+  padding: 2rem;
+  margin-bottom: 0rem !important;
+  border-top: #222 1px solid;
+}
+
+.news-item:hover {
+  background-color: #f2f2f2;
+  transition: all 0.2s ease-out;
+}
+
+
 /* # ======================================== # */
 /* # ==== Responsive CSS Media Selectors ==== # */
 /* # ======================================== # */
