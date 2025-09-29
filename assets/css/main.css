@@ -238,13 +238,13 @@ a:hover {
 /* # ====================== # */
 
 /* #### Partie liens-colonnes #### */
-.site-bg .site-container .main-test .archives .liens-colonnes h3 {
+.site-bg .site-container .main-test .sidebar .liens-colonnes h3 {
   color: #0f0f0f;
   font-size: 15px;
   margin-left: 30px;
 }
 
-.site-bg .site-container .main-test .archives .liens-colonnes a {
+.site-bg .site-container .main-test .sidebar .liens-colonnes a {
   color: #0f545e;
   font-weight: bold;
   text-decoration: none;
@@ -252,13 +252,13 @@ a:hover {
 }
 
 /* #### Partie archive #### */
-.site-bg .site-container .main-test .archives .archive h3 {
+.site-bg .site-container .main-test .sidebar h3 {
   color: #0f0f0f;
   font-size: 20px;
   margin-left: 20px;
 }
 
-.site-bg .site-container .main-test .archives .archive a {
+.site-bg .site-container .main-test .sidebar a {
   color: #0f545e;
   font-weight: bold;
   text-decoration: none;
@@ -266,8 +266,8 @@ a:hover {
   white-space: nowrap;
 }
 
-.site-bg .site-container .main-test .archives {
-  min-width: 200px;
+.site-bg .site-container .main-test .sidebar {
+  min-width: fit-content;
 }
 
 /* # ===================== # */
@@ -277,10 +277,22 @@ a:hover {
 /* #### Partie main-test et content #### */
 .site-bg .site-container .main-test {
   display: flex;
-  gap: 12rem;
+  gap: 4rem;
   align-items: flex-start;
+  margin: 0px 2em;
 }
 
+.site-bg .site-container .main-test .content {
+    min-width: 0px;
+    overflow-wrap: break-word;
+    flex: 1 1 0px;
+    padding: 0px 3em;
+}
+
+.site-bg .site-container .main-test  > * {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 
 /* # ======================================== # */
 /* # ==== Responsive CSS Media Selectors ==== # */
@@ -429,12 +441,14 @@ a:hover {
   .site-bg .site-container .main-test {
     flex-direction: column;
     gap: 2rem;
+    overflow: hidden;
   }
 
   .site-bg .site-container .main-test .content {
     order: 1;
     margin-top: 0;
-  }
+    width: 100%;
+    box-sizing: border-box; }
 
   .site-bg .site-container .main-test .sidebar {
     order: 2;
@@ -445,21 +459,21 @@ a:hover {
   }
 
   /* #### Archives mobile #### */
-  .site-bg .site-container .main-test .archives .liens-colonnes h3 {
+  .site-bg .site-container .main-test .sidebar .liens-colonnes h3 {
     margin-left: 0;
     font-size: 0.9rem;
   }
 
-  .site-bg .site-container .main-test .archives .liens-colonnes a {
+  .site-bg .site-container .main-test .sidebar .liens-colonnes a {
     font-size: 0.8rem;
   }
 
-  .site-bg .site-container .main-test .archives .archive h3 {
+  .site-bg .site-container .main-test .sidebar h3 {
     margin-left: 0;
     font-size: 1.125rem;
   }
 
-  .site-bg .site-container .main-test .archives .archive a {
+  .site-bg .site-container .main-test .sidebar a {
     font-size: 0.875rem;
     white-space: normal;
   }
@@ -499,10 +513,13 @@ a:hover {
   .site-bg .site-container .main-test {
     flex-direction: column;
     gap: 3rem;
+    overflow: hidden;
   }
 
   .site-bg .site-container .main-test .content {
     order: 1;
+    width: 100%;
+    box-sizing: border-box; 
   }
 
   .site-bg .site-container .main-test .sidebar {
@@ -512,11 +529,11 @@ a:hover {
     padding-top: 2rem;
   }
 
-  .site-bg .site-container .main-test .archives .liens-colonnes h3 {
+  .site-bg .site-container .main-test .sidebar .liens-colonnes h3 {
     margin-left: 0.6rem;
   }
 
-  .site-bg .site-container .main-test .archives .archive h3 {
+  .site-bg .site-container .main-test .sidebar h3 {
     margin-left: 0.6rem;
   }
 }
