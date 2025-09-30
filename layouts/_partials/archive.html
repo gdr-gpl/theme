@@ -11,7 +11,7 @@
 
     {{ range $archives }}
       <li>
-        <a href="{{ "_/archives/" | relURL }}{{ .key | urlize }}/">
+        <a href="{{ "/archives/" | relURL }}{{ .key | urlize }}/">
           {{ $date := printf "%s-01" .key | time }}
           {{ $date.Format "January 2006"
             | replaceRE "January" "Janvier"
