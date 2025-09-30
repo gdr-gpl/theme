@@ -76,21 +76,46 @@ const createHitHtml = (hit) => {
       </article>
   `;
 }
+
 const getMainContent = () => document.querySelector('main .content') || document.querySelector('main');
+
 const renderHits = (hits) => {
   const mainContent = getMainContent();
   if (!mainContent) return;
+
   const query = getQuery();
-  const html = hits.slice(0, MAX_HITS_SHOWN).map(createHitHtml).join('\n');
-  mainContent.innerHTML = `<p style="
-    color: #666;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    line-height: 2.6em;
-    text-transform: uppercase;
-">Search Results for: ${query} </p> ${html}` || '<p>Aucun résultat</p>';
+  const html = hits
+    .slice(0, MAX_HITS_SHOWN)
+    .map(createHitHtml)
+    .join('\n');
+
+  if (html && html.trim() !== "") {
+    mainContent.innerHTML = `
+      <p style="
+        color: #666;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        line-height: 2.6em;
+        text-transform: uppercase;
+      ">
+        Search Results for: ${query}
+      </p>
+      ${html}
+    `;
+  } else {
+    mainContent.innerHTML = `<p style="
+        color: #666;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        line-height: 2.6em;
+        text-transform: uppercase;
+      ">Aucun résultat trouvé pour " ${query} "</p>`;
+  }
 };
+
+
 const handleSearchEvent = () => {
   const query = getQuery();
   if (!query || query.length < 1) {
@@ -101,6 +126,7 @@ const handleSearchEvent = () => {
   setUrlParam(query);
   renderHits(hits);
 };
+
 const fetchJsonIndex = () => {
   fetch(JSON_INDEX_URL)
     .then(res => res.json())
@@ -115,7 +141,6 @@ const fetchJsonIndex = () => {
           handleSearchEvent();  
         });
       }
-      // input.addEventListener('input', handleSearchEvent);
       input.addEventListener('keydown', e => {
         if (e.key === 'Escape') {
           input.value = '';
@@ -127,6 +152,7 @@ const fetchJsonIndex = () => {
       console.error(`Failed to fetch JSON index: ${error.message}`);
     });;
 }
+
 document.addEventListener('DOMContentLoaded', fetchJsonIndex);
 
 
