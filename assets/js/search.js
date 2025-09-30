@@ -1,6 +1,6 @@
 // Client-side search script
 // Inspired by: https://github.com/zwbetz-gh/hugo-client-side-search-template
-const JSON_INDEX_URL = `${window.location.origin}/index.json`;
+const JSON_INDEX_URL = `${window.location.origin}/gdr-gpl/index.json`;
 const QUERY_URL_PARAM = 'query';
 const MAX_HITS_SHOWN = 10;
 const FUSE_OPTIONS = {
