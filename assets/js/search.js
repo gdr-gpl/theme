@@ -111,7 +111,7 @@ const renderHits = (hits) => {
         letter-spacing: 0.1em;
         line-height: 2.6em;
         text-transform: uppercase;
-      ">Aucun résultat trouvé pour " ${query} "</p>`;
+      ">No results found for " ${query} "</p>`;
   }
 };
 
