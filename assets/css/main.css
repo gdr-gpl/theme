@@ -153,8 +153,7 @@ a:hover {
 
 /* Dropdown */
 .site-bg .site-container .hero-banner .hero-nav li.dropdown {
-  position: relative;
-  
+  position: relative;  
 }
 
 .site-bg .site-container .hero-banner .hero-nav .dropdown-menu {
@@ -179,7 +178,7 @@ a:hover {
   color: #fff;
   padding: 0.5rem 1rem;
   display: block;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 
 .site-bg .site-container .hero-banner .hero-nav .dropdown-menu li a:hover {
@@ -287,6 +286,7 @@ a:hover {
     overflow-wrap: break-word;
     flex: 1 1 0px;
     padding: 0px 3em;
+    overflow-wrap: anywhere;
 }
 
 .site-bg .site-container .main-test  > * {
@@ -294,6 +294,18 @@ a:hover {
     padding: 0 !important;
   }
 
+
+/* #### Partie news item #### */
+.news-item {
+  padding: 2rem;
+  margin-bottom: 0rem !important;
+  border-top: #222 1px solid;
+}
+
+.news-item:hover {
+  background-color: #f2f2f2;
+  transition: all 0.2s ease-out;
+}
 /* # ======================================== # */
 /* # ==== Responsive CSS Media Selectors ==== # */
 /* # ======================================== # */
