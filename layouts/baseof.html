@@ -23,6 +23,9 @@
       </footer>
     </div>
   </div>
+  <script>
+    window.BASE_URL = '{{ .Site.BaseURL }}';
+  </script>
   {{ partial "scripts.html" . }}
 </body>
 </html>
