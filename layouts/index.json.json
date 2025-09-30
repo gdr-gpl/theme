@@ -1,0 +1,21 @@
+[
+{{- $pages := where .Site.Pages "Kind" "page" -}}
+{{- range $index, $page := $pages -}}
+  {{- if gt $index 0 }},{{ end }}
+  {{- $summary := $page.Summary | plainify -}}
+  {{- $content := $page.Content | plainify -}}
+  {
+    "title": {{ $page.Title | jsonify }},
+    "url": {{ $page.RelPermalink | jsonify }},
+    "description": {{ $summary | jsonify }},
+    "readmore": {{ if lt (len $summary) (len $content) }}true{{ else }}false{{ end }},
+    "date": {{ $page.Date | time.Format "02/01/2006" | jsonify }},
+    "categories": [
+      {{- range $i, $cat := $page.Params.categories -}}
+        {{- if $i }},{{ end }}
+        { "name": {{ $cat | jsonify }}, "url": {{ printf "/categories/%s/" $cat | urlize | jsonify }} }
+      {{- end -}}
+    ]
+  }
+{{- end -}}
+]

@@ -1,0 +1,17 @@
+<!-- Inclusion de ton main.js -->
+<script src="/js/main.js"></script>
+
+<!-- Fuse.js pour la recherche -->
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
+
+<!-- Script de recherche -->
+{{ $searchJs := resources.Get "js/search.js" }}
+{{ if $searchJs }}
+  {{ if not hugo.IsServer }}
+    {{ $searchJs = $searchJs | minify | fingerprint }}
+  {{ end }}
+  <script src="{{ $searchJs.RelPermalink }}"></script>
+{{ else }}
+  <!-- Fallback vers static/ si pas trouvé dans assets/ -->
+  <script src="/js/search.js"></script>
+{{ end }}
