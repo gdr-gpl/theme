@@ -1,14 +1,6 @@
 // Client-side search script
 // Inspired by: https://github.com/zwbetz-gh/hugo-client-side-search-template
-// const origin = window.location.origin;
-// const pathname = window.location.pathname;
-// const parts = pathname.split('/').filter(p => p !== '');
-// let base = '';
-// const BASE_PATH = '{{ .Site.Params.basePath }}';
-// if (parts.length > 0 && parts[0] === BASE_PATH) {
-//   base = BASE_PATH;
-// }
-// const JSON_INDEX_URL = `${origin}/${base}${base ? '/' : ''}index.json`;
+
 const JSON_INDEX_URL = `${window.BASE_URL}index.json`;
 console.log('Fetch JSON from :', JSON_INDEX_URL);
 
