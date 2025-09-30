@@ -2,7 +2,6 @@
 // Inspired by: https://github.com/zwbetz-gh/hugo-client-side-search-template
 
 const JSON_INDEX_URL = `${window.BASE_URL}index.json`;
-console.log('Fetch JSON from :', JSON_INDEX_URL);
 
 const QUERY_URL_PARAM = 'query';
 const MAX_HITS_SHOWN = 10;
