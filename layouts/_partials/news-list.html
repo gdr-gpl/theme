@@ -1,20 +1,19 @@
-
 <p style="margin-bottom: 1rem;">
   <a href="">Dernières actualités</a>
 </p>
- <div class="news-list" style="margin-left: 2rem;padding-left: 1rem; "> 
-  {{ range where site.RegularPages "Type" "news"}}
+<div class="news-list" style="margin-left: 2rem; padding-left: 1rem;"> 
+  {{ $news := where site.RegularPages "Type" "news" | first 10 }}
+  {{ range $news }}
+    {{ $summary := .Summary | plainify }}
+    {{ $content := .Content | plainify }}
 
-  {{ $summary := .Summary | plainify }}
-  {{ $content := .Content | plainify }}
+    <div class="news-item" style="margin-bottom: 1.5rem;">
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      <p>{{ .Summary }}</p>
 
-     <div class="news-item" style="margin-bottom: 1.5rem;">
-        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-        <p>{{ .Summary }}</p>
-        
-        {{ if lt (len $summary) (len $content) }}
+      {{ if lt (len $summary) (len $content) }}
         <a href="{{ .RelPermalink }}">Continue reading →</a>
-        {{ end }}
-      </div>
+      {{ end }}
+    </div>
   {{ end }}
-  </div>
+</div>
