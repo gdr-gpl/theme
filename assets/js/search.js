@@ -38,37 +38,19 @@ const doSearchIfUrlParamExists = ()=> {
     handleSearchEvent();
   }
 }
-const highlightMatches = (text, matches) => {
-  if (!matches || matches.length === 0) return text;
-  let result = text;
-  const allIndices = [];
-  
-  matches.forEach(m => {
-      m.indices.forEach(([start, end]) => {
-        allIndices.push([start, end]);
-      });
-    });
-    
-  allIndices.sort((a, b) => b[0] - a[0]);
-  allIndices.forEach(([start, end]) => {
-    result = result.substring(0, start)
-      + `<mark style="background:#fff3cd;">` + result.substring(start, end + 1) + `</mark>`
-      + result.substring(end + 1);
-  });
-  return result;
-}
 const createHitHtml = (hit) => {
   const item = hit.item;
   const url = item.url;
-  const title = highlightMatches(item.title, hit.matches.filter(m => m.key === 'title'));
-  const desc = item.description ? highlightMatches(item.description, hit.matches.filter(m => m.key === 'description')) : '';
+  const title = item.title;
+  const desc = item.description ;
+  console.log(desc);
   const date = item.date ? (new Date(item.date)).toLocaleDateString() : '';
   const categories = item.categories || [];
    return `
     <article style="border-bottom:1px solid #eee;">
      <h1><a href="${window.BASE_URL}${url}" style="text-decoration:none; color:#222;">${title}</a></h1>
        ${date ? `<p style="color: #666;font-size: 10px;letter-spacing: 0.1em;">Posted on ${date}</p>` : ''}
-      <p style="padding: 1em 0;>${desc ? `${desc}` : ''} ${item.readmore ? `... <a href="${window.BASE_URL}${url}">Continue reading →</a>` : ''}</p>
+      <p>${desc} ${item.readmore ? `... <a href="${window.BASE_URL}${url}">Continue reading →</a>` : ''}</p>
       ${categories.length > 0 ? `<p style="color: #666;font-size: 10px;letter-spacing: 0.1em;">
          Posted in 
           ${categories.map(cat => `<a href="${cat.url}" >${cat.name}</a>`).join(', ')}
@@ -154,5 +136,3 @@ const fetchJsonIndex = () => {
 }
 
 document.addEventListener('DOMContentLoaded', fetchJsonIndex);
-
-
